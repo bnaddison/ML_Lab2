@@ -18,7 +18,6 @@ vector <string> h = {"0", "0", "0", "0", "0", "0"};
 int main () {
 
     string input, line;
-    bool enjoysport;
     string sky, airtemp, humidity, wind, water, forecast, enjoy;
   	cout << "Enter Input File name:" << endl;
   	cin >> input;
@@ -26,9 +25,10 @@ int main () {
   	ifstream in(input);
 
   	while ( getline(in, line) ) {
+      bool enjoysport;
   		istringstream ss(line);
   		ss >> sky >> airtemp >> humidity >> wind >> water >> forecast >> enjoy;
-      if (enjoy.compare("yes") == 0) {
+      if (enjoy.compare("Yes") == 0) {
         enjoysport = true;
       }
       else {
@@ -62,16 +62,32 @@ int main () {
         if (h[j].compare(t_examples[i].first[j]) != 0 && t_examples[i].second == true) {
           h[j] = "?";
         }
+        /*
+        if (h[j].compare(t_examples[i].first[j]) == 0 && t_examples[i].second == false) {
+          h[j] = "?";
+        }
+        */
 
 
       }
       //cout << endl;
-      cout << i+1 << " " << t_examples[i].second << endl;
+      //cout << i+1 << " " << t_examples[i].second << endl;
     }
+
+    ofstream out;
+  	out.open("Outputfile");
+
+    if (out.is_open()) {
+      for (int i = 0; i < h.size(); i++) {
+        out << h[i] << " ";
+      }
+    }
+    out.close();
 
     for (int i = 0; i < h.size(); i++) {
       cout << h[i] << " ";
     }
+    cout << endl;
 
 
 
