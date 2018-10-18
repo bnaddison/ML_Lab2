@@ -1,0 +1,12 @@
+## ADDBRA001
+## Brandon Addison
+## CSC3022H
+## ML Lab 2
+
+Q1:
+The minimum number of additional training examples required to
+learn target concept < Sunny, Warm, ?, ?, ?, ? > is 1.
+
+the additional training example is:
+
+< Sunny, Warm, High, Weak, Warm, Same, Yes >
